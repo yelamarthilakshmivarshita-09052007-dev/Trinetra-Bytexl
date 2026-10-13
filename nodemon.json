@@ -1,0 +1,13 @@
+{
+  "watch": [
+    "server.js"
+  ],
+  "ext": "js",
+  "ignore": [
+    "data/**",
+    "client/**",
+    "node_modules/**",
+    ".git/**"
+  ],
+  "delay": "300ms"
+}

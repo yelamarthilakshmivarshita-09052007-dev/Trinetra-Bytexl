@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: trinetra-digital-risk-protection
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm --prefix client install && npm --prefix client run build
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DB
+        value: brandshield
+      - key: SERPAPI_API_KEY
+        sync: false
+      - key: FRONTEND_ORIGIN
+        sync: false
