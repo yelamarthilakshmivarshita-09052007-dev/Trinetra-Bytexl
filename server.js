@@ -424,11 +424,7 @@ app.patch("/api/findings/:id",async(req,res)=>{
 });
 app.get("/api/scans",(_req,res)=>res.json(store.scans));
 app.use("/api/*",(req,res)=>res.status(404).json({error:`API route not found: ${req.method} ${req.path}`}));
-if(process.env.NODE_ENV==="production"){
-  const dist=path.join(ROOT,"client","dist");
-  app.use(express.static(dist));
-  app.get("*",(req,res)=>res.sendFile(path.join(dist,"index.html")));
-}
+
 initStore().then(async()=>{
   app.listen(PORT,()=>console.log(`Trinetra running on port ${PORT} (${persistence})`));
 }).catch(e=>{console.error("Startup failed:",e);process.exit(1);});
