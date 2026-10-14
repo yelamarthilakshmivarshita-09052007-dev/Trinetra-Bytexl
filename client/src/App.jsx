@@ -1,6 +1,6 @@
 import React,{useEffect,useState}from"react";
 import{ShieldCheck,LayoutDashboard,Share2,Smartphone,Settings,Search,Bell,ChevronRight,ExternalLink,AlertTriangle,CheckCircle2,RefreshCw,Filter,X,Save,Globe2,ShieldAlert,ScanSearch,Plus,Play,Eye}from"lucide-react";
-const API="/api";const dt=v=>v?new Date(v).toLocaleString():"—";
+const API="https://trinetra-backend-kpmk.onrender.com";const dt=v=>v?new Date(v).toLocaleString():"—";
 async function request(path,opts={}){const r=await fetch(API+path,{headers:{"Content-Type":"application/json"},...opts});const d=await r.json();if(!r.ok)throw new Error(d.error||"Request failed");return d;}
 function App(){
  const [page,setPage]=useState("Overview"),[brand,setBrand]=useState(null),[findings,setFindings]=useState([]),[health,setHealth]=useState(null),[busy,setBusy]=useState(false),[toast,setToast]=useState(""),[query,setQuery]=useState(""),[filter,setFilter]=useState("all"),[modal,setModal]=useState(""),[selected,setSelected]=useState(null);
